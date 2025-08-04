@@ -1,0 +1,127 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f9f6f0;
+  color: #333;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: white;
+  border-bottom: 1px solid #eee;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #222;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.auth-cart a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #222;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.auth-section,
+.contact-form {
+  max-width: 800px;
+  margin: 50px auto;
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.auth-box h2,
+.contact-form h1 {
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 25px;
+}
+
+.social-login button {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  font-size: 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.google {
+  background-color: #db4437;
+  color: white;
+}
+
+.facebook {
+  background-color: #4267B2;
+  color: white;
+}
+
+.divider {
+  text-align: center;
+  margin: 15px 0;
+  color: #aaa;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #222;
+  color: white;
+  font-size: 15px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.toggle-msg {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.toggle-msg a {
+  color: #333;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.name-fields {
+  display: flex;
+  gap: 20px;
+}
+
+.name-fields div {
+  flex: 1;
+}
