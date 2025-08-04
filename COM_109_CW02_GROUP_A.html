@@ -1,11 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>Dairy Store</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+  <!-- Navigation -->
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a id="nav-home">Shop All</a></li>
+      <li><a id="nav-about">About</a></li>
+      <li><a id="nav-dairy">Our Dairy</a></li>
+      <li><a id="nav-contact">Contact</a></li>
+    </ul>
+    <div class="auth-cart">
+      <a id="nav-login">Log In</a>
+      <a cart="🛒">🛒</a>
+    </div>
+  </nav>
+
+  <!-- Log In / Sign Up Section -->
+  <section class="auth-section" id="login-section">
+    <div class="auth-box">
+      <h2 id="formTitle">Login</h2>
+
+      <div class="social-login">
+        <button class="google">Continue with Google</button>
+        <button class="facebook">Continue with Facebook</button>
+      </div>
+
+      <div class="divider">or</div>
+
+      <form id="authForm">
+        <div id="extraFields" style="display: none;">
+          <input type="text" id="firstName" placeholder="First Name" required>
+          <input type="text" id="lastName" placeholder="Last Name" required>
+          <input type="text" id="phone" placeholder="Phone Number" required>
+        </div>
+
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit" id="submitBtn">Log In</button>
+      </form>
+
+      <p class="toggle-msg">
+        Don't have an account? <a href="#" id="toggleForm">Sign Up</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section class="contact-form hidden" id="contact-section">
+    <h1>Get In Touch</h1>
+    <form id="contactForm">
+      <div class="name-fields">
+        <div>
+          <label>First name</label>
+          <input type="text" name="firstName" required>
+        </div>
+        <div>
+          <label>Last name</label>
+          <input type="text" name="lastName" required>
+        </div>
+      </div>
+      <label>Email</label>
+      <input type="email" name="email" required>
+
+      <label>Write a message</label>
+      <textarea name="message" rows="4" required></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
