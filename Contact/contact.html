@@ -2,41 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Dairy Store</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
   <link rel="stylesheet" href="contactstyle.css">
 </head>
 <body>
-  <nav class="navbar">
-    <ul class="nav-links">
-      <li><a id="nav-home">Shop All</a></li>
-      <li><a id="nav-about">About</a></li>
-      <li><a id="nav-dairy">Our Dairy</a></li>
-      <li><a id="nav-contact">Contact</a></li>
-    </ul>
-  </nav>
-  <section class="contact-form hidden" id="contact-section">
-    <h1>Get In Touch</h1>
-    <form id="contactForm">
-      <div class="name-fields">
-        <div>
-          <label>First name</label>
-          <input type="text" name="firstName" required>
-        </div>
-        <div>
-          <label>Last name</label>
-          <input type="text" name="lastName" required>
+ <section class="contact-form" id="contact-section">
+  <h1>Get In Touch</h1>
+  <form id="contactForm">
+    <div class="name-fields">
+       <div> 
+      <label>First name</label>
+      <input type="text" name="firstName" required>
+      </div>
+      <div>
+         <label>Last name</label>
+         <input type="text" name="lastName" required>
         </div>
       </div>
-      <label>Email</label>
-      <input type="email" name="email" required>
+       <label>Email</label>
+       <input type="email" name="email" required>
 
-      <label>Send an enquiry</label>
-      <textarea name="message" rows="4" required></textarea>
-
-      <button type="submit">Submit</button>
-    </form>
-  </section>
+       <label>Send an enquiry</label>
+        <textarea name="message" rows="4" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="contactquery.js"></script>

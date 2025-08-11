@@ -1,66 +1,27 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: #f9f6f0;
-  color: #333;
-}
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
-  background: white;
-  border-bottom: 1px solid #eee;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 30px;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #222;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.auth-cart a {
-  margin-left: 20px;
-  text-decoration: none;
-  color: #222;
-  cursor: pointer;
+  background-color: #f9f6f0;
+  color: #000000;
 }
 
 .hidden {
   display: none;
 }
 
-.auth-section,
 .contact-form {
   max-width: 800px;
   margin: 50px auto;
-  background: white;
+  background-color: #ffffff;
   padding: 40px;
   border-radius: 10px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
 
-.auth-box h2,
 .contact-form h1 {
   text-align: center;
   font-size: 26px;
   margin-bottom: 25px;
-}
-
-.divider {
-  text-align: center;
-  margin: 15px 0;
-  color: #aaa;
 }
 
 form input,
@@ -77,24 +38,12 @@ form button {
   width: 100%;
   padding: 12px;
   background-color: #3E5F44;
-  color: white;
+  color: #ffffff;
   font-size: 15px;
   border: none;
   border-radius: 30px;
   margin-top: 15px;
   cursor: pointer;
-}
-
-.toggle-msg {
-  text-align: center;
-  margin-top: 15px;
-}
-
-.toggle-msg a {
-  color: #3E5F44;
-  font-weight: bold;
-  cursor: pointer;
-  text-decoration: none;
 }
 
 .name-fields {
@@ -106,3 +55,31 @@ form button {
   flex: 1;
 }
 
+label {
+  color: #3E5F44;
+}
+
+/* Responsive Design for Tablets and Phones */
+@media (max-width: 768px) {
+  .contact-form {
+    max-width: 90%;
+    margin: 30px auto;
+    padding: 30px;
+  }
+
+  .name-fields {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-form {
+    padding: 20px;
+    margin: 20px auto;
+  }
+
+  .contact-form h1 {
+    font-size: 22px;
+  }
+}
