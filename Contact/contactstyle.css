@@ -1,12 +1,132 @@
+:root {
+  --primary-color: #3E5F44;
+  --secondary-color: #5E936C;
+  --text-color: #F2F2F2;
+  --background-color: #F2F2F2;
+  --body-text-color: #000000;
+  
+  --font-size-s: 0.9rem;
+  --font-size-m: 1.2rem;
+  --font-size-l: 1.5rem;
+  --font-size-xl: 2rem;
+  --font-size-xxl: 2.5rem;
+
+  --font-weight-normal: 400;
+  --font-weight-bold: 900;
+  --font-medium: 500;
+  --font-semibold: 600;
+
+  --border-radius-s: 8px;
+  --border-radius-m: 30px;
+  --border-radius-circle: 50%;
+
+  --site-max-width: 1300px;
+}
+
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f9f6f0;
-  color: #000000;
+  background-color: var(--background-color);
+  color: var(--body-text-color);
+  padding-top: 80px; 
 }
 
-.hidden {
-  display: none;
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.section-content {
+  max-width: var(--site-max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header and Navigation Styling */
+header {
+  background-color: var(--primary-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 5;
+}
+
+.navbar {
+  display: flex;
+  padding: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-logo .logo-text {
+  color: var(--text-color);
+}
+
+.nav-menu {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-menu .nav-link {
+  padding: 10px 18px;
+  color: var(--text-color);
+  font-size: var(--font-size-m);
+}
+
+.nav-menu .nav-link:hover {
+  color: var(--text-color);
+  background: var(--secondary-color);
+  border-radius: var(--border-radius-m);
+  transition: 0.1s ease;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-buttons .nav-button {
+  padding: 10px 20px;
+  border: 2px solid transparent;
+  color: var(--text-color);
+  border-radius: var(--border-radius-m);
+  background: var(--primary-color);
+  font-weight: var(--font-weight-medium);
+  display: flex;
+  width: 120px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-buttons .nav-button:hover {
+  background: var(--background-color);
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+  transition: 0.3s ease;
 }
 
 .contact-form {
@@ -20,8 +140,9 @@ body {
 
 .contact-form h1 {
   text-align: center;
-  font-size: 26px;
+  font-size: var(--font-size-xl);
   margin-bottom: 25px;
+  color: #333;
 }
 
 form input,
@@ -37,11 +158,11 @@ form textarea {
 form button {
   width: 100%;
   padding: 12px;
-  background-color: #3E5F44;
-  color: #ffffff;
+  background-color: var(--primary-color);
+  color: var(--text-color);
   font-size: 15px;
   border: none;
-  border-radius: 30px;
+  border-radius: var(--border-radius-m);
   margin-top: 15px;
   cursor: pointer;
 }
@@ -56,11 +177,32 @@ form button {
 }
 
 label {
-  color: #3E5F44;
+  color: var(--primary-color);
+  font-size: var(--font-size-s);
+  font-weight: var(--font-medium);
+  margin-top: 10px;
 }
 
-/* Responsive Design for Tablets and Phones */
 @media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .nav-menu {
+    margin-top: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-buttons {
+    margin-top: 10px;
+  }
+
+  body {
+    padding-top: 140px; 
+  }
+
   .contact-form {
     max-width: 90%;
     margin: 30px auto;
@@ -80,6 +222,6 @@ label {
   }
 
   .contact-form h1 {
-    font-size: 22px;
+    font-size: var(--font-size-l);
   }
 }
