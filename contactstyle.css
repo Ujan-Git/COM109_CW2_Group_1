@@ -76,11 +76,11 @@ form textarea {
 form button {
   width: 100%;
   padding: 12px;
-  background-color: #222;
+  background-color: #3E5F44;
   color: white;
   font-size: 15px;
   border: none;
-  border-radius: 5px;
+  border-radius: 30px;
   margin-top: 15px;
   cursor: pointer;
 }
@@ -91,7 +91,7 @@ form button {
 }
 
 .toggle-msg a {
-  color: #333;
+  color: #3E5F44;
   font-weight: bold;
   cursor: pointer;
   text-decoration: none;
@@ -105,3 +105,4 @@ form button {
 .name-fields div {
   flex: 1;
 }
+
