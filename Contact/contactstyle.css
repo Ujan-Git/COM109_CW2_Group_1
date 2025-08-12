@@ -223,6 +223,7 @@ label {
   .contact-form h1 {
     font-size: var(--font-size-l);
   }
+<<<<<<< HEAD
   /* Footer styling */
 
 footer {
@@ -266,3 +267,7 @@ footer {
     color: var(--hover-color);
 }
 }
+=======
+}
+
+>>>>>>> cc0c1449ca5672c62b6eeb7473885ae5a30e99b1
