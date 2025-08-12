@@ -214,17 +214,7 @@ label {
   }
 }
 
-@media (max-width: 480px) {
-  .contact-form {
-    padding: 20px;
-    margin: 20px auto;
-  }
-
-  .contact-form h1 {
-    font-size: var(--font-size-l);
-  }
-<<<<<<< HEAD
-  /* Footer styling */
+/* Footer styling */
 
 footer {
     background-color: var(--primary-color);
@@ -266,8 +256,16 @@ footer {
 .footer-links a:hover {
     color: var(--hover-color);
 }
-}
-=======
-}
 
->>>>>>> cc0c1449ca5672c62b6eeb7473885ae5a30e99b1
+
+@media (max-width: 480px) {
+  .contact-form {
+    padding: 20px;
+    margin: 20px auto;
+  }
+
+  .contact-form h1 {
+    font-size: var(--font-size-l);
+  }
+
+}
