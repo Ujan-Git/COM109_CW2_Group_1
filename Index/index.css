@@ -5,7 +5,7 @@
     font-family: "poppins", sans-serif;
 }
 
-/* created a root styling for color, size and borders */
+
 :root {
     --primary-color: #3E5F44;
     --secondary-color: #5E936C;
@@ -33,7 +33,7 @@
 
 }
 
-/* This will be the styling for the whole site */
+
 ul {
     list-style: none;
 }
@@ -58,7 +58,6 @@ img {
     margin: 0 auto;
     padding: 0 20px;
 }
-/* Styling for the navigation bar */
 header {
     background: var(--primary-color);
     position: fixed;
@@ -82,13 +81,12 @@ header .navbar .nav-logo {
     align-items: center;
     gap: 10px;
 }
-/* Display: flex alings the nav texts into one single line */
 header .nav-menu {
     display: flex; 
     gap: 10px;
 }
 
-/* with this styling the nav text color has been changed */
+
 .navbar .nav-menu .nav-link {
     padding: 10px 18px;
     color: var(--text-color);
@@ -96,7 +94,7 @@ header .nav-menu {
    
 }
 
-/* Styling for hover */
+
 .navbar .nav-menu .nav-link:hover {
     color: var(--hover-color);
     background: var(--secondary-color);
@@ -104,6 +102,7 @@ header .nav-menu {
     transition: 0.1s ease;
 }
 
+<<<<<<< HEAD
 .navbar .nav-buttons {
     display: flex;
     gap: 10px;
@@ -131,15 +130,18 @@ header .nav-menu {
 }
 
 /* Styling for the hero section */
+=======
+
+>>>>>>> 41ec5287a28f5384cf8298a875426ab89ddb5c90
 .hero-section {
-    /* 100% of the view port height or full height of the screen */
+   
     min-height: 100vh;    
     background: var(--background-color);
     color: var(--body-text-color);
     
 }
 
-/* Styling made for the hero texts */
+
 .hero-section .section-content {
     display: flex;
     align-items: center;
@@ -206,7 +208,7 @@ header .nav-menu {
 
 
 .about-section {
-    /* 100% of the view port height or full height of the screen */
+  
     min-height: 100vh;    
     background: var(--background-color);
     color: var(--body-text-color);
