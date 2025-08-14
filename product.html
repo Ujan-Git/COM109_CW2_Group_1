@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Dairy Product Store</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+  header {background:#1e3d59; color:#fff; text-align:center;}
+  main {max-width:900px; margin:20px auto; background:#fff; padding:20px; border-radius:8px; box-shadow:0 4px 10px rgba(0,0,0,0.1)}
+  .hidden {display:none;}
+  #productList {display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px;}
+  .product-card {border:1px solid #ddd; border-radius:8px; cursor:pointer; overflow:hidden; transition:transform 0.2s ease;}
+  .product-card:hover {transform:scale(1.03);}
+  .product-card img {width:100%; height:160px; object-fit:cover;}
+  .product-info {padding:10px;}
+  #productDetail img {width:100%; max-height:300px; object-fit:cover; border-radius:8px;}
+  button, select, input, textarea {font-size:1em; padding:10px; margin-top:10px; border-radius:6px; border:1px solid #ccc; width:100%; box-sizing:border-box;}
+  button {background:var(--background-color); color:var(--primary-color); border: 2px solid transparent; border-color:var(--primary-color); border:var(--border-radius-s); cursor:pointer; transition:background 0.3s ease;}
+  button:hover {background:var(--primary-color); border:var(--border-radius-s); color:var(--text-color); transition:background 0.3s ease;}
+  table {width:100%; border-collapse:collapse; margin-bottom:20px;}
+  th, td {border:1px solid #ddd; padding:8px; text-align:left;}
+  th {background:var(--primary-color); color:#fff;}
+  .nav-buttons button {width:auto; margin-right:10px; margin-top:10px;}
+  /* created a root styling for color, size and borders */
+  
+  :root {
+  --primary-color: #3E5F44;
+  --secondary-color: #5E936C;
+  --text-color: #F2F2F2;
+  --background-color: #F2F2F2;
+  --body-text-color: #000000;
+  
+  --font-size-s: 0.9rem;
+  --font-size-m: 1.2rem;
+  --font-size-l: 1.5rem;
+  --font-size-xl: 2rem;
+  --font-size-xxl: 2.5rem;
+
+  --font-weight-normal: 400;
+  --font-weight-bold: 900;
+  --font-medium: 500;
+  --font-semibold: 600;
+
+  --border-radius-s: 8px;
+  --border-radius-m: 30px;
+  --border-radius-circle: 50%;
+
+  --site-max-width: 1600px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--background-color);
+  color: var(--body-text-color);
+  padding-top: 80px;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.section-content {
+  max-width: var(--site-max-width);
+  margin: 0 0;
+}
+
+header {
+  background-color: var(--primary-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 5;
+}
+
+.navbar {
+  display: flex;
+  padding: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-logo .logo-text {
+  color: var(--text-color);
+}
+
+.nav-menu {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-menu .nav-link {
+  padding: 10px 18px;
+  color: var(--text-color);
+  font-size: var(--font-size-m);
+}
+
+.nav-menu .nav-link:hover {
+  color: var(--text-color);
+  background: var(--secondary-color);
+  border-radius: var(--border-radius-m);
+  transition: 0.1s ease;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {   
+    .nav-menu {
+        position: fixed;
+        right: -700%;
+        top: 112px; /* Adjust based on header height */
+        flex-direction: column;
+        background-color: var(--primary-color);
+        width: 20%;
+        text-align: center;
+        transition: 0.3s;
+        z-index: 1001;
+    }
+
+    .nav-menu.active {
+        right: 0 !important;
+    }
+
+    main {
+        padding-top: 160px; /* Adjust based on your header height */
+    }
+}
+.nav-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-buttons .nav-button {
+  padding: 10px 20px;
+  border: 2px solid transparent;
+  color: var(--text-color);
+  border-radius: var(--border-radius-m);
+  background: var(--primary-color);
+  font-weight: var(--font-weight-medium);
+  display: flex;
+  width: 120px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-buttons .nav-button:hover {
+  background: var(--background-color);
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+  transition: 0.3s ease;
+}
+
+
+/* hamburger menu styling */
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+@media (max-width:768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(2) {
+        transform: translateY(8px ) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px ) rotate(-45deg);
+    }
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--text-color);
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--text-color);
+}
+/* Footer styling */
+
+footer {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: var(--site-max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* Adds space between the paragraph and the links */
+}
+
+.footer-content p {
+    font-size: var(--font-size-s);
+    margin: 0;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px; 
+}
+
+.footer-links a {
+    color: var(--text-color);
+    font-size: var(--font-size-s);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--secondary-color);
+}
+</style>
+</head>
+<body>
+    <header>
+        <nav class="navbar section-content">
+                <a href="http://127.0.0.1:5500/Index/Index.html" class="nav-logo">
+                    <img src="img\Farmify_main.png" alt="Farmify Logo" class="logo-image" height="50" width="88">
+                    <h2 class="logo-text">Farmify</h2>
+                </a>
+                <ul class="nav-menu">
+                  <li class="nav-item"><a href="Index.html" class="nav-link">Home</a></li> 
+                  <li class="nav-item"><a href="#" class="nav-link">Products</a></li>
+                  <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                  <li class="nav-item"><a href="contact.html" class="nav-link">Contacts</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+    </header>
+<main>
+  <!-- Page 1: Product List -->
+  <section id="page1">
+    <h2>Our Products</h2>
+    <div id="productList"></div>
+  </section>
+
+  <!-- Page 2: Product Detail -->
+  <section id="page2" class="hidden">
+    <button id="backToListBtn">&larr; Back to Products</button>
+    <div id="productDetail"></div>
+  </section>
+
+  <!-- Page 3: Cart & Checkout -->
+  <section id="page3" class="hidden">
+    <h2>Your Cart</h2>
+    <table id="cartTable">
+      <thead><tr><th>Product</th><th>Quality</th><th>Price</th><th>Remove</th></tr></thead>
+      <tbody></tbody>
+      <tfoot><tr><th colspan="2">Total</th><th id="cartTotal">$0</th><th></th></tr></tfoot>
+    </table>
+    <h3>Checkout</h3>
+    <input type="text" id="custName" placeholder="Your Name" />
+    <input type="email" id="custEmail" placeholder="Email Address" />
+    <textarea id="custAddress" placeholder="Delivery Address" rows="3"></textarea>
+    <select id="paymentMethod">
+      <option value="">Select Payment Method</option>
+      <option value="COD">Cash on Delivery</option>
+      <option value="Card">Credit/Debit Card</option>
+      <option value="UPI">UPI</option>
+    </select>
+    <button id="placeOrderBtn">Place Order</button>
+    <div class="nav-buttons">
+      <button id="backToDetailBtn">&larr; Back to Product Detail</button>
+      <button id="backToProductsBtn">&larr; Back to Products</button>
+    </div>
+  </section>
+
+  <!-- Page 4: Order Receipt -->
+  <section id="page4" class="hidden">
+    <h2>Order Receipt</h2>
+    <div id="receiptContent"></div>
+    <button id="closeReceiptBtn">Close Receipt & Back to Products</button>
+  </section>
+</main>
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2025 Farmify. All rights reserved.</p>
+        <ul class="footer-links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+    </div>
+</footer>
+<script>
+  // Product data
+  const products = [
+    { id:1, name:'Yogurt', image:'img/yogurt.jpg', description:'Pure desi yogourt with rich texture.' },
+    { id:2, name:'Herb Delight Butter', image:'img/Herb Delight Butter 2.jfif', description:'Butter infused with garden herbs.' },
+    { id:3, name:'Farmhouse Cheddar', image:'img/images 3.jfif', description:'Bold and sharp aged cheddar.' },
+    { id:4, name:'Full Cream Fresh Milk', image:'img/images 4.jfif', description:'Freshly farmed full cream milk.' },
+    { id:5, name:'Creamy Plain Yogurt', image:'img/images5.jfif', description:'Smooth, creamy, and probiotic-rich.' },
+    { id:6, name:'Creamy Gold Butter', image:'img/download 6.jfif', description:'Pure desi butter with rich texture.' }
+  ];
+
+  const qualities = [
+    { level:'Standard', price:5 },
+    { level:'Premium', price:7 },
+    { level:'Organic', price:10 }
+  ];
+
+  let selectedProduct = null;
+  let cart = [];
+
+  // DOM elements
+  const page1 = document.getElementById('page1');
+  const page2 = document.getElementById('page2');
+  const page3 = document.getElementById('page3');
+  const page4 = document.getElementById('page4');
+
+  const productListDiv = document.getElementById('productList');
+  const productDetailDiv = document.getElementById('productDetail');
+  const cartTableBody = document.querySelector('#cartTable tbody');
+  const cartTotalCell = document.getElementById('cartTotal');
+
+  const custName = document.getElementById('custName');
+  const custEmail = document.getElementById('custEmail');
+  const custAddress = document.getElementById('custAddress');
+  const paymentMethod = document.getElementById('paymentMethod');
+
+  const receiptContent = document.getElementById('receiptContent');
+  const closeReceiptBtn = document.getElementById('closeReceiptBtn');
+
+  // Buttons
+  const backToListBtn = document.getElementById('backToListBtn');
+  const backToDetailBtn = document.getElementById('backToDetailBtn');
+  const backToProductsBtn = document.getElementById('backToProductsBtn');
+  const placeOrderBtn = document.getElementById('placeOrderBtn');
+
+  // Render product list grid
+  function renderProductList() {
+    productListDiv.innerHTML = '';
+    products.forEach(p => {
+      const card = document.createElement('div');
+      card.className = 'product-card';
+      card.innerHTML = `
+        <img src="${p.image}" alt="${p.name}" />
+        <div class="product-info">
+          <h3>${p.name}</h3>
+          <p>${p.description}</p>
+        </div>
+      `;
+      card.onclick = () => openProductDetail(p);
+      productListDiv.appendChild(card);
+    });
+  }
+
+  // Show product detail page
+  function openProductDetail(product) {
+    selectedProduct = product;
+    productDetailDiv.innerHTML = `
+      <img src="${product.image}" alt="${product.name}" />
+      <h2>${product.name}</h2>
+      <p>${product.description}</p>
+      <label for="qualitySelect">Select Quality & Price:</label>
+      <select id="qualitySelect">
+        <option value="">-- Select Quality --</option>
+        ${qualities.map(q => `<option value="${q.price}">${q.level} - $${q.price}</option>`).join('')}
+      </select>
+      <button id="addToCartBtn">Add to Cart</button>
+    `;
+
+    document.getElementById('addToCartBtn').onclick = () => {
+      const qSelect = document.getElementById('qualitySelect');
+      if (!qSelect.value) {
+        alert('Please select a quality.');
+        return;
+      }
+      const qualityText = qSelect.options[qSelect.selectedIndex].text;
+      const price = parseFloat(qSelect.value);
+      addToCart(product, qualityText, price);
+    };
+    showPage(2);
+  }
+
+  // Add product to cart
+  function addToCart(product, qualityText, price) {
+    cart.push({ id:product.id, name:product.name, quality:qualityText, price:price });
+    alert(`${product.name} (${qualityText}) added to cart.`);
+    openCartPage();
+  }
+
+  // Render cart page
+  function openCartPage() {
+    renderCart();
+    custName.value = '';
+    custEmail.value = '';
+    custAddress.value = '';
+    paymentMethod.value = '';
+    showPage(3);
+  }
+
+  // Render cart table
+  function renderCart() {
+    cartTableBody.innerHTML = '';
+    if (cart.length === 0) {
+      cartTableBody.innerHTML = '<tr><td colspan="4" style="text-align:center;">Cart is empty.</td></tr>';
+      cartTotalCell.textContent = '$0';
+      placeOrderBtn.disabled = true;
+      return;
+    }
+    placeOrderBtn.disabled = false;
+    let total = 0;
+    cart.forEach((item, idx) => {
+      total += item.price;
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${item.name}</td>
+        <td>${item.quality}</td>
+        <td>$${item.price.toFixed(2)}</td>
+        <td><button class="removeBtn" data-index="${idx}">Remove</button></td>
+      `;
+      cartTableBody.appendChild(tr);
+    });
+    cartTotalCell.textContent = '$' + total.toFixed(2);
+
+    document.querySelectorAll('.removeBtn').forEach(btn => {
+      btn.onclick = () => {
+        const index = +btn.dataset.index;
+        cart.splice(index, 1);
+        renderCart();
+      };
+    });
+  }
+
+  // Show only one page
+  function showPage(num) {
+    page1.classList.add('hidden');
+    page2.classList.add('hidden');
+    page3.classList.add('hidden');
+    page4.classList.add('hidden');
+    if (num === 1) page1.classList.remove('hidden');
+    else if (num === 2) page2.classList.remove('hidden');
+    else if (num === 3) page3.classList.remove('hidden');
+    else if (num === 4) page4.classList.remove('hidden');
+  }
+
+  // Navigation buttons
+  backToListBtn.onclick = () => showPage(1);
+  backToDetailBtn.onclick = () => showPage(2);
+  backToProductsBtn.onclick = () => showPage(1);
+  closeReceiptBtn.onclick = () => showPage(1);
+
+  // Place order
+  placeOrderBtn.onclick = () => {
+    const name = custName.value.trim();
+    const email = custEmail.value.trim();
+    const address = custAddress.value.trim();
+    const payment = paymentMethod.value;
+
+    if (!name) {
+      alert('Please enter your name.');
+      return;
+    }
+    if (!email) {
+      alert('Please enter your email address.');
+      return;
+    }
+    if (!address) {
+      alert('Please enter your delivery address.');
+      return;
+    }
+    if (!payment) {
+      alert('Please select a payment method.');
+      return;
+    }
+    if (cart.length === 0) {
+      alert('Your cart is empty.');
+      return;
+    }
+
+    // Show receipt page
+    showReceipt(name, email, address, payment, cart);
+
+    // Clear cart and form after showing receipt
+    cart = [];
+    renderCart();
+    custName.value = '';
+    custEmail.value = '';
+    custAddress.value = '';
+    paymentMethod.value = '';
+  };
+
+  // Show receipt function
+  function showReceipt(name, email, address, payment, cartItems) {
+    let receiptHTML = `
+      <p><strong>Name:</strong> ${name}</p>
+      <p><strong>Email:</strong> ${email}</p>
+      <p><strong>Address:</strong> ${address}</p>
+      <p><strong>Payment Method:</strong> ${payment}</p>
+      <h3>Purchased Items:</h3>
+      <table>
+        <thead>
+          <tr><th>Product</th><th>Quality</th><th>Price</th></tr>
+        </thead>
+        <tbody>
+    `;
+
+    let total = 0;
+    cartItems.forEach(item => {
+      receiptHTML += `
+        <tr>
+          <td>${item.name}</td>
+          <td>${item.quality}</td>
+          <td>$${item.price.toFixed(2)}</td>
+        </tr>
+      `;
+      total += item.price;
+    });
+
+    receiptHTML += `
+        </tbody>
+        <tfoot>
+          <tr>
+            <th colspan="2">Total</th>
+            <th>$${total.toFixed(2)}</th>
+          </tr>
+        </tfoot>
+      </table>
+    `;
+
+    receiptContent.innerHTML = receiptHTML;
+    showPage(4);
+  }
+
+  // Initialize
+  renderProductList();
+  showPage(1);
+
+  const hamburger = document.querySelector('.hamburger');
+  const navmenu = document.querySelector('.nav-menu');
+
+  hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navmenu.classList.toggle('active');
+  })
+
+  document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      navmenu.classList.remove('active');
+  }));
+</script>
+
+</body>
+</html>
+ 

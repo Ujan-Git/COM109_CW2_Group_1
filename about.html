@@ -12,7 +12,7 @@
       box-sizing: border-box;
     }
     body {
-      font-family: 'poppins', sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       line-height: 1.7;
       background-color: #fdfbf7;
       color: #333;
@@ -43,7 +43,7 @@
     --border-radius-m: 30px;
     --border-radius-circle: 50%;
 
-    --site-max-width: 1300px;
+    --site-max-width: 1600px;
 
 }
 
@@ -283,7 +283,64 @@ header .nav-menu {
 .footer-links a:hover {
     color: var(--hover-color);
 }
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    /* Hide the default hamburger icon on desktop */
+    .hamburger {
+        display: block;
+    }
+    
+    /* Mobile-specific styles for the menu */
+    .nav-menu {
+        position: fixed;
+        right: -700%;
+        top: 112px; /* Adjust based on your header height */
+        flex-direction: column;
+        background-color: var(--primary-color);
+        width: 20%;
+        text-align: center;
+        transition: 0.3s;
+        z-index: 1001;
+    }
 
+    .nav-menu.active {
+        right: 0 !important;
+    }
+
+    main {
+        padding-top: 160px; /* Adjust based on your header height */
+    }
+}
+.hamburger {
+    display: none;
+}
+@media (max-width:768px) {
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(2) {
+        transform: translateY(8px ) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px ) rotate(-45deg);
+    }
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--text-color);
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--text-color);
+}
 
 
     /* Responsive Adjustments */
@@ -299,7 +356,8 @@ header .nav-menu {
   </style>
 </head>
 <body>
- <header>
+<body>
+    <header>
         <nav class="navbar section-content">
                 <a href="http://127.0.0.1:5500/Index/Index.html" class="nav-logo">
                     <img src="img\Farmify_main.png" alt="Farmify Logo" class="logo-image" height="50" width="88">
@@ -307,11 +365,16 @@ header .nav-menu {
                 </a>
                 <ul class="nav-menu">
                   <li class="nav-item"><a href="Index.html" class="nav-link">Home</a></li> 
-                  <li class="nav-item"><a href="#" class="nav-link">Products</a></li>
+                  <li class="nav-item"><a href="product.html" class="nav-link">Products</a></li>
                   <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
                   <li class="nav-item"><a href="contact.html" class="nav-link">Contacts</a></li>
                 </ul>
-  </header>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+    </header>
   <!-- About Us Section -->
   <section class="about-us">
     <div class="container">
@@ -379,6 +442,20 @@ header .nav-menu {
         </ul>
     </div>
   </footer>
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navmenu = document.querySelector('.nav-menu');
+
+    hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navmenu.classList.toggle('active');
+    })
+
+    document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    navmenu.classList.remove('active');
+    }));
+  </script>
 
 </body>
 </html>

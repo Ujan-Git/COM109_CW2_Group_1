@@ -2,209 +2,227 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "poppins", sans-serif;
+    font-family: "Segoe UI", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 /* created a root styling for color, size and borders */
 :root {
-    --primary-color: #3E5F44;
-    --secondary-color: #5E936C;
-    --text-color: #F2F2F2;
-    --background-color: #F2F2F2;
-    --hover-color: #F2F2F2;
-    --body-text-color: #000000;
+  --primary-color: #3E5F44;
+  --secondary-color: #5E936C;
+  --text-color: #F2F2F2;
+  --background-color: #F2F2F2;
+  --body-text-color: #000000;
+  
+  --font-size-s: 0.9rem;
+  --font-size-m: 1.2rem;
+  --font-size-l: 1.5rem;
+  --font-size-xl: 2rem;
+  --font-size-xxl: 2.5rem;
 
-    --font-size-s:0.9rem;
-    --font-size-m:1.2rem;
-    --font-size-l:1.5rem;
-    --font-size-xl:2rem;
-    --font-size-xxl: 2.5rem;
+  --font-weight-normal: 400;
+  --font-weight-bold: 900;
+  --font-medium: 500;
+  --font-semibold: 600;
 
-    --font-weight-normal: 400;
-    --font-weight-bold: 900;
-    --font-medium: 500;
-    --font-semibold: 600;
+  --border-radius-s: 8px;
+  --border-radius-m: 30px;
+  --border-radius-circle: 50%;
 
-    --border-radius-s: 8px;
-    --border-radius-m: 30px;
-    --border-radius-circle: 50%;
-
-    --site-max-width: 1300px;
-
+  --site-max-width: 1600px;
 }
 
-/* This will be the styling for the whole site */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--background-color);
+  color: var(--body-text-color);
+  padding-top: 80px;
+}
+
 ul {
-    list-style: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 button {
-    cursor: pointer;
-    border: none;
-    background: none;
+  cursor: pointer;
+  border: none;
+  background: none;
 }
 
 img {
-    max-width: 100%;
-    height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 .section-content {
-    max-width: var(--site-max-width);
-    margin: 0 auto;
-    padding: 0 20px;
+  max-width: var(--site-max-width);
+  margin: 0 0;
 }
-/* Styling for the navigation bar */
+
 header {
-    background: var(--primary-color);
-    position: fixed;
-    width: 100%;
-    z-index: 5;
+  background-color: var(--primary-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 5;
 }
 
 header .navbar {
-    display: flex;
-    padding: 20px;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  padding: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .navbar .nav-logo .logo-text {
-    color: var(--text-color)
+  color: var(--text-color);
 }
 
-header .navbar .nav-logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-/* Display: flex alings the nav texts into one single line */
 header .nav-menu {
-    display: flex; 
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
-/* with this styling the nav text color has been changed */
 .navbar .nav-menu .nav-link {
-    padding: 10px 18px;
-    color: var(--text-color);
-    font-size: var(--font-size-m);
-   
+  padding: 10px 18px;
+  color: var(--text-color);
+  font-size: var(--font-size-m);
 }
 
-/* Styling for hover */
 .navbar .nav-menu .nav-link:hover {
-    color: var(--hover-color);
-    background: var(--secondary-color);
-    border-radius: var(--border-radius-m);
-    transition: 0.1s ease;
+  color: var(--text-color);
+  background: var(--secondary-color);
+  border-radius: var(--border-radius-m);
+  transition: 0.1s ease;
 }
+
 
 .navbar .nav-buttons {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 .navbar .nav-buttons .nav-button {
-    padding: 10px 20px;
-    border: 2px solid transparent;
-    color: var(--text-color);
-    border-radius: var(--border-radius-m);
-    background: var(--primary-color);
-    font-weight: var(--font-weight-medium);
-    display: flex;
-    width: 120px;
-    height: 40px;
-    justify-content: center;
-    align-items: center;
+  padding: 10px 20px;
+  border: 2px solid transparent;
+  color: var(--text-color);
+  border-radius: var(--border-radius-m);
+  background: var(--primary-color);
+  font-weight: var(--font-weight-medium);
+  display: flex;
+  width: 120px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
 }
 
 .navbar .nav-buttons .nav-button:hover {
-    background: var(--background-color);
-    color: var(--primary-color);
-    border-color: var(--primary-color);
-    transition: 0.3s ease;
+  background: var(--background-color);
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+  transition: 0.3s ease;
 }
-
 /* Styling for the hero section */
 .hero-section {
-    /* 100% of the view port height or full height of the screen */
-    min-height: 100vh;    
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
     background: var(--background-color);
     color: var(--body-text-color);
-    
+    padding-left: 100px;
 }
 
-/* Styling made for the hero texts */
 .hero-section .section-content {
     display: flex;
-    align-items: center;
-    min-height: 100vh;
+    width: 100%;
+    max-width: var(--site-max-width);
     justify-content: space-between;
-    padding: 0 100px;
+    align-items: center;
+    margin: 0;
+    padding: 0;
 }
 
-.hero-section .hero-details .title {
+.hero-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 60px;
+}
+
+.hero-details .title {
     font-size: var(--font-size-xxl);
     font-weight: var(--font-weight-bold);
-    font-family: "poppins", sans-serif;
+    font-family: "Poppins", sans-serif;
     color: var(--primary-color);
 }
 
-.hero-section .hero-details .subtitle {
+.hero-details .subtitle {
     margin-top: 8px;
-    max-width: 70%;
     font-size: var(--font-size-xl);
     font-weight: var(--font-weight-semibold);
     color: var(--secondary-color);
 }
-.hero-section .hero-details .description {
+
+.hero-details .description {
     margin: 24px 0 40px;
-    max-width: 70%;
     font-size: var(--font-size-m);
+    max-width: 90%;
     color: var(--body-text-color);
 }
 
-.hero-details {
-    flex-grow: 1;
-    padding-right: 50px;
-}
-.hero-section .hero-details .hero-buttons a {
+.hero-buttons a {
     padding: 10px 20px;
     border: 2px solid transparent;
     color: var(--text-color);
     border-radius: var(--border-radius-m);
     background: var(--primary-color);
     font-weight: var(--font-weight-medium);
-    color: var(--text-color);
     display: flex;
     width: 250px;
     height: 60px;
     justify-content: center;
     align-items: center;
-}
-
-
-.hero-section .hero-details .hero-buttons:hover a {
-    background: var(--background-color);
-    color: var(--primary-color);
-    border-color: var(--primary-color);
     transition: 0.3s ease;
 }
 
-.hero-section-image {
-    position: relative;
-    width: 50;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+.hero-buttons a:hover {
+    background: var(--background-color);
+    color: var(--primary-color);
+    border-color: var(--primary-color);
 }
 
+.hero-section-image {
+    flex: 1;
+    height: 100%;
+    overflow: hidden;
+}
 
+.hero-section-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
 .about-section {
     /* 100% of the view port height or full height of the screen */
     min-height: 100vh;    
@@ -228,7 +246,7 @@ header .nav-menu {
     max-width: 70%;
     font-size: var(--font-size-xl);
     font-weight: var(--font-weight-semibold);
-    color: var(--secondary-color);
+    color: var(--primary-color);
 }
 
 .about-section .about-section-content {
@@ -269,7 +287,7 @@ header .nav-menu {
 }
 
 
-.about-section .about-details .about-buttons:hover a {
+.about-section .about-details .about-buttons a:hover {
     background: var(--background-color);
     color: var(--primary-color);
     border-color: var(--primary-color);
@@ -277,37 +295,8 @@ header .nav-menu {
 }
 
 .about-section img {
-    width: 100%;
+    width: 50%;
     height: auto;
-}
-
-.cat-section {
-    background: var(--background-color);
-    color: var(--body-text-color);
-    padding: 100px 0px;
-    display: flex;
-    justify-content: center;
-}
-
-.cat-section-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #fff;
-    padding: 10px;
-    border-radius: var(--border-radius-s);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 200px;
-    text-align: left;
-}
-
-
-.cat-item {
-    width: auto;
-    height: auto;
-    border-radius: var(--border-radius-s);
-    object-fit: cover;
-    margin-bottom: px;
 }
 
 .map-section {
@@ -364,7 +353,7 @@ footer {
     padding: 0;
     margin: 0;
     display: flex;
-    gap: 20px; /* Adds space between the footer links */
+    gap: 20px; 
 }
 
 .footer-links a {
@@ -375,68 +364,96 @@ footer {
 }
 
 .footer-links a:hover {
-    color: var(--hover-color);
+    color: var(--secondary-color);
 }
 
 /* Media Queries for responsiveness */
 @media (max-width: 768px) {
-    .hero-section .section-content {
+    /* Hide the default hamburger icon on desktop */
+    .hamburger {
+        display: block;
+    }
+    
+    /* Mobile-specific styles for the menu */
+    .nav-menu {
+        position: fixed;
+        right: -700%;
+        top: 112px; /* Adjust based on your header height */
         flex-direction: column;
-        align-items: center;
+        background-color: var(--primary-color);
+        width: 20%;
+        text-align: center;
+        transition: 0.3s;
+        z-index: 1001;
+    }
+
+    .nav-menu.active {
+        right: 0 !important;
+    }
+
+    main {
+        padding-top: 160px; /* Adjust based on your header height */
+    }
+}
+.hamburger {
+    display: none;
+}
+@media (max-width:768px) {
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(2) {
+        transform: translateY(8px ) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px ) rotate(-45deg);
+    }
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--text-color);
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column;
         padding: 0 20px;
+        height: auto;
+    }
+
+    .hero-details {
+        padding: 20px 0;
+        text-align: center;
+        align-items: center;
     }
 
     .hero-section-image {
         width: 100%;
         height: auto;
+        margin-top: 20px;
     }
 
-    .about-section .about-section-content {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .cat-section-content {
+    .hero-section-image img {
         width: 100%;
-        max-width: 300px;
-    }
-}
-
-/* hamburger menu styling */
-/* Style the hamburger menu icon */
-.hamburger-menu {
-    display: none; /* Hide by default */
-    cursor: pointer;
-    padding: 10px;
-}
-
-.hamburger-menu .bar {
-    width: 25px;
-    height: 3px;
-    background-color: var(--text-color);
-    margin: 5px 0;
-    transition: 0.4s;
-}
-
-/* On screens up to 768px, show the hamburger menu and hide the regular nav menu */
-@media (max-width: 768px) {
-    .hamburger-menu {
-        display: block; /* Show the hamburger menu icon */
+        height: auto;
+        object-fit: cover;
     }
 
-    .nav-menu {
-        display: none; /* Hide the regular navigation menu */
-        position: absolute;
-        top: 60px; /* Adjust this value to be below your header */
-        right: 0;
+    .hero-buttons a {
         width: 100%;
-        background-color: var(--primary-color);
-        flex-direction: column;
-        align-items: center;
-        z-index: 4;
-    }
-
-    .nav-menu.active {
-        display: flex; /* Show the menu when the 'active' class is added */
+        max-width: 250px;
+        margin: 0 auto;
     }
 }
