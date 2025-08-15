@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Dairy Product Store</title>
+<title>Products</title>
+<link rel="icon" href="img/Farmify_main.png" type="image/png">
 <style>
   * {
     margin: 0;
@@ -15,7 +16,7 @@
   main {max-width:900px; margin:20px auto; background:#fff; padding:20px; border-radius:8px; box-shadow:0 4px 10px rgba(0,0,0,0.1)}
   .hidden {display:none;}
   #productList {display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px;}
-  .product-card {border:1px solid #ddd; border-radius:8px; cursor:pointer; overflow:hidden; transition:transform 0.2s ease;}
+  .product-card {border:1px solid #ddd; border-radius:8px; cursor:pointer; overflow:hidden; transition:transform 0.2s ease; }
   .product-card:hover {transform:scale(1.03);}
   .product-card img {width:100%; height:160px; object-fit:cover;}
   .product-info {padding:10px;}
@@ -261,13 +262,13 @@ footer {
 <body>
     <header>
         <nav class="navbar section-content">
-                <a href="http://127.0.0.1:5500/Index/Index.html" class="nav-logo">
+                <a href="index.html" class="nav-logo">
                     <img src="img\Farmify_main.png" alt="Farmify Logo" class="logo-image" height="50" width="88">
                     <h2 class="logo-text">Farmify</h2>
                 </a>
                 <ul class="nav-menu">
-                  <li class="nav-item"><a href="Index.html" class="nav-link">Home</a></li> 
-                  <li class="nav-item"><a href="#" class="nav-link">Products</a></li>
+                  <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li> 
+                  <li class="nav-item"><a href="product.html" class="nav-link">Products</a></li>
                   <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
                   <li class="nav-item"><a href="contact.html" class="nav-link">Contacts</a></li>
                 </ul>
@@ -328,19 +329,19 @@ footer {
         <ul class="footer-links">
             <li><a href="#">Privacy Policy</a></li>
             <li><a href="#">Terms of Service</a></li>
-            <li><a href="#">Contact Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
         </ul>
     </div>
 </footer>
 <script>
   // Product data
   const products = [
-    { id:1, name:'Yogurt', image:'img/yogurt.jpg', description:'Pure desi yogourt with rich texture.' },
+    { id:1, name:'Yogurt', image:'img/yogurt.jpg', description:'Pure yogourt with rich texture.' },
     { id:2, name:'Herb Delight Butter', image:'img/Herb Delight Butter 2.jfif', description:'Butter infused with garden herbs.' },
     { id:3, name:'Farmhouse Cheddar', image:'img/images 3.jfif', description:'Bold and sharp aged cheddar.' },
     { id:4, name:'Full Cream Fresh Milk', image:'img/images 4.jfif', description:'Freshly farmed full cream milk.' },
     { id:5, name:'Creamy Plain Yogurt', image:'img/images5.jfif', description:'Smooth, creamy, and probiotic-rich.' },
-    { id:6, name:'Creamy Gold Butter', image:'img/download 6.jfif', description:'Pure desi butter with rich texture.' }
+    { id:6, name:'Creamy Gold Butter', image:'img/download 6.jfif', description:'Pure british butter with rich texture.' }
   ];
 
   const qualities = [

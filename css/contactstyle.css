@@ -328,3 +328,18 @@ footer {
     transition: all 0.3s ease-in-out;
     background-color: var(--text-color);
 }
+
+h2 {
+    font-size: var(--font-size-l);
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+p1 {
+    font-size: var(--font-size-m);
+    color: var(--body-text-color);
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 20px 100px;
+}

@@ -142,13 +142,13 @@ header .nav-menu {
 }
 /* Styling for the hero section */
 .hero-section {
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: stretch;
     background: var(--background-color);
     color: var(--body-text-color);
-    padding-left: 100px;
+    padding: 10px 0;
+    padding-left: 200px;
 }
 
 .hero-section .section-content {
@@ -166,7 +166,8 @@ header .nav-menu {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 60px;
+    padding: 0 20px;
+    padding-top: 50px;
 }
 
 .hero-details .title {
@@ -224,11 +225,10 @@ header .nav-menu {
     display: block;
 }
 .about-section {
-    /* 100% of the view port height or full height of the screen */
-    min-height: 100vh;    
+    /* 100% of the view port height or full height of the screen */   
     background: var(--background-color);
     color: var(--body-text-color);
-    padding: 100px 0px;
+    padding: 0px 0px;
     display: flex;
     justify-content: center;
 }
